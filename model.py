@@ -63,7 +63,7 @@ def block_stem(inputs):
 
     net = concatenate([branch_1, branch_2])
 
-    branch_1 = conv2d(net, 192, (3, 3), strides=(2, 2), padding='valid')  # 与论文不同
+    branch_1 = conv2d(net, 192, (3, 3), strides=(2, 2), padding='valid')  # different from the paper
     branch_2 = MaxPooling2D((3, 3), strides=(2, 2), padding='valid')(net)
 
     net = concatenate([branch_1, branch_2])
@@ -95,7 +95,7 @@ def block_inception_b(inputs):
 
     branch_3 = conv2d(inputs, 192, (1, 1))
     branch_3 = conv2d(branch_3, 224, (1, 7))
-    branch_3 = conv2d(branch_3, 256, (7, 1))  # 与论文不同
+    branch_3 = conv2d(branch_3, 256, (7, 1))  # different from the paper
 
     branch_4 = conv2d(inputs, 192, (1, 1))
     branch_4 = conv2d(branch_4, 192, (1, 7))
